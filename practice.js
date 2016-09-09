@@ -3,9 +3,21 @@
 
       //Answer
 
+      // keyword that refernces an object and establishes context
+
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
+
+      // Implicit Binding
+
+      // Explicit Binding
+      //   bind
+      //   apply
+      //   call
+
+      // New Binding
+      // Default Binding
 
   // 3) What is the difference between call and apply?
 
@@ -25,8 +37,16 @@
 
     //Code Here
 
-//Now, invoke the getUsername method and verify you got the username of the object and not anything else.
+    var user = {
+      username: "Jon",
+      email: "j@j.com",
+      getUsername: function(){
+        return this.username;
+      }
+    }
 
+//Now, invoke the getUsername method and verify you got the username of the object and not anything else.
+console.log(user.getUsername());
 
 //Next Problem
 
@@ -34,6 +54,21 @@
 // Write the function definitions which will make the following function invocations function properly.
 
   //Function Invocations Here
+
+var Car = function(make, model, year){
+ var carObj = { 
+    make: make,
+    model: make,
+    year: year,
+    move: 0,
+    moveCar: function () {
+      this.move = this.move + 10;
+      return this.move;
+      }
+    };
+    return carObj;
+};
+
 
 var prius = new Car('Toyota', 'Prius', 2011);
 var mustang = new Car('Ford', 'Mustang', 2013);
@@ -55,7 +90,8 @@ var getYear = function(){
 
 //Note(no tests)
   //Code Here
-
+console.log(getYear.call(prius));
+console.log(getYear.call(mustang));
 
 //New Problem
 
